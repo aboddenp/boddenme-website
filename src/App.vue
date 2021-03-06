@@ -1,94 +1,48 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="secondary"
-      dark
-    >
-      <div class="d-flex align-center">
-      
-      <v-menu offset-y >
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn
-              dark
-              v-bind="attrs"
-              v-on="on"
-              icon
-            >
-              <v-icon> mdi-menu </v-icon>
-            </v-btn>
-          </template>
-           <v-list nav rounded>
-            <v-list-item-group  >
-                <v-list-item class="d-flex justify-center blue lighten-5" >
-                  <v-icon >mdi-home</v-icon>
-                </v-list-item>
-                <v-list-item  class="px-6" v-for="info in nav_info" :key="info.name">
-                  <v-list-item-icon><v-icon > {{info.icon}} </v-icon></v-list-item-icon>
-                  <v-list-item-content>{{info.name}}</v-list-item-content>
-                </v-list-item>
-            </v-list-item-group>
-           </v-list>
-          </v-menu>
-      </div>
-
-      <v-spacer></v-spacer>
-
-        <v-btn 
-          icon
-          href="https://www.linkedin.com/in/aster-bodden-pineda-35b386115/"
-          target="_blank"
-        >
-          <v-icon> mdi-linkedin</v-icon>
-        </v-btn>
-
-        <v-btn 
-          icon
-          href="https://github.com/aboddenp/boddenme-website"
-          target="_blank"
-        >
-          <v-icon> mdi-github</v-icon>
-        </v-btn>
-    </v-app-bar>
-
+    <SideBar></SideBar>
     <v-main>
+      <v-parallax  src="./assets/computer.jpg">
+        <v-row class="mt-6" >
+          <v-col class="text-center" >
+            <v-avatar size="150"
+              color="grey"
+            >
+              <v-img src="./assets/me.jpg"></v-img>
+            </v-avatar>
+
+            <v-sheet
+                class=" mt-5 mx-auto py-5"
+                color="white"
+                elevation="3"
+                width="250"
+                rounded="lg"
+                height="auto"
+              >
+              <div class=" pt-3 text--primary text-h4">Aster Bodden</div>
+              <div class="overline text--secondary ">Software Developer</div>
+              <div class="caption text--secondary pa-5">"A machine that turns coffee into code"</div>
+            </v-sheet>
+            
+          </v-col>
+        </v-row>
+
+      </v-parallax>
+
     </v-main>
   </v-app>
 </template>
 
 <script>
-// import SideBar from './components/SideBar';
+import SideBar from './components/SideBar.vue';
 
 export default {
   name: 'App',
 
   components: {
+    SideBar
   },
 
-  data: () => ({
-    nav_info:[
-      {
-        icon:"mdi-forum",
-        name:"About me"
-
-      },
-      {
-        icon:"mdi-school",
-        name:"Education"
-      },
-      {        
-        icon:"mdi-wrench",
-        name:"Skills"
-      },
-      {        
-        icon:"mdi-bug",
-        name:"Experience"
-      },
-      {        
-        icon:"mdi-brightness-4",
-        name:"Dark Mode"
-      }
-    ]
-  }),
+  data: () => ({}),
 };
 </script>
